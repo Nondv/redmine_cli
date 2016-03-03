@@ -1,0 +1,9 @@
+rvm use 2.2.1@redmine_cli --create
+if [ -z "$(gem list | grep '^bundler\s')" ]; then
+    echo
+    echo '--- WARNING ---'
+    echo 'I cannot find "bundler" gem.'
+    echo 'Looks like you use gemset "profit-gis" at first time.'
+    echo 'Please, execute:  gem install bundler; bundle install'
+    echo
+fi

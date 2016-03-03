@@ -1,0 +1,4 @@
+en:
+  desc:
+    client:
+      issue: 'Command for working with issues. See "redmine issue help"'

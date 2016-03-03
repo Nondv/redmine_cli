@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require 'redmine_cli'
+
+RedmineCLI::Client.start(ARGV)
