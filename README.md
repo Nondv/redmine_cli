@@ -1,4 +1,5 @@
 # RedmineCLI
+[![Gem Version](https://badge.fury.io/rb/redmine_cli.svg)](https://badge.fury.io/rb/redmine_cli)
 
 Command-Line Interface for Redmine.
 
@@ -6,27 +7,15 @@ Why? Because web-browser + mouse sucks
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'redmine_cli'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
     $ gem install redmine_cli
 
 ## Usage
 
+    redmine issue list [user id]
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/redmine_cli.
-
+Bug reports and pull requests are welcome on GitHub at https://github.com/Nondv/redmine_cli.
 
 ## License
 
