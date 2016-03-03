@@ -2,16 +2,17 @@ require 'thor'
 require 'redmine_rest'
 require 'i18n'
 
+I18n.load_path = Dir["#{File.dirname __FILE__}/assets/messages/*"]
+
 # helpers
 Dir[File.expand_path('../redmine_cli/helpers/*.rb', __FILE__)].each { |f| require f }
 
 require 'redmine_cli/version'
 require 'redmine_cli/config'
+I18n.locale = RedmineCLI::Config['locale'] || :en
+
 require 'redmine_cli/template_renderer'
 Dir[File.expand_path('../redmine_cli/subcommands/*.rb', __FILE__)].each { |f| require f }
-
-I18n.load_path = Dir["#{File.dirname __FILE__}/assets/messages/*"]
-I18n.locale = RedmineCLI::Config['locale'] || :en
 
 #
 # base namespace

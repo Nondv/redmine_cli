@@ -1,6 +1,7 @@
 en:
+  test: '1234'
   desc:
     client:
-      issue: 'Command for working with issues. See "redmine issue help"'
+      :issue: 'Command for working with issues. See "redmine issue help"'
     issue:
       list: 'Lists issues of user. By default it is you'

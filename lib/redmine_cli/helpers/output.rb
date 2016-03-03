@@ -1,4 +1,3 @@
-
 module RedmineCLI
   module Helpers
     #

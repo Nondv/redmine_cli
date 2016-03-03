@@ -7,6 +7,8 @@ module RedmineCLI
     # All methods for working with issues, e.g. listing, linking, updating...
     #
     class Issue < Thor
+      extend Helpers::Output
+
       include RedmineRest
       include Helpers::Output
 
