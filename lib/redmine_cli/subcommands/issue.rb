@@ -10,11 +10,11 @@ module RedmineCLI
       include RedmineRest
       include Helpers::Output
 
-      desc 'list', 'Shows your current issues'
-      def list
+      desc 'list [user]', m('desc.issue.list')
+      def list(id = 'current')
         fail('new config') if Config.new?
 
-        puts erb('issue/list', issues: Models::User.find('current').issues)
+        puts erb('issue/list', issues: Models::User.find(id).issues)
       end
     end
   end
