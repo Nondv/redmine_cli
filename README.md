@@ -1,4 +1,5 @@
 # RedmineCLI
+[![Gem Version](https://badge.fury.io/rb/redmine_cli.svg)](https://badge.fury.io/rb/redmine_cli)
 
 Command-Line Interface for Redmine.
 
@@ -22,11 +23,11 @@ Or install it yourself as:
 
 ## Usage
 
+    redmine issue list [user id]
 
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/redmine_cli.
-
 
 ## License
 
