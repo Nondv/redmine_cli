@@ -11,7 +11,14 @@ Why? Because web-browser + mouse sucks
 
 ## Usage
 
+    redmine help
+    redmine conf init
     redmine issue list [user id]
+    redmine issue show <issue id>
+    redmine user find vasya
+    redmine user find 123
+    redmine user find pupkin@yet.another.mail.com
+
 
 ## Contributing
 

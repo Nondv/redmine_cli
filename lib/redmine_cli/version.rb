@@ -1,3 +1,3 @@
 module RedmineCLI
-  VERSION = '0.2.0-issue.show'.freeze
+  VERSION = '0.2.0'.freeze
 end
