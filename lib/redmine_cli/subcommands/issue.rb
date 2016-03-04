@@ -18,6 +18,13 @@ module RedmineCLI
 
         puts erb('issue/list', issues: Models::User.find(id).issues)
       end
+
+      desc 'show <id>', m('desc.issue.show')
+      def show(id)
+        puts erb('issue/show', issue: Models::Issue.find(id))
+      rescue ActiveResource::ResourceNotFound
+        puts m(:not_found)
+      end
     end
   end
 end
