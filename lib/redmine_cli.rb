@@ -31,5 +31,8 @@ module RedmineCLI
 
     desc 'conf ...', m('desc.client.conf')
     subcommand 'conf', Subcommands::Conf
+
+    desc 'user ...', m('desc.client.user')
+    subcommand 'user', Subcommands::User
   end
 end
