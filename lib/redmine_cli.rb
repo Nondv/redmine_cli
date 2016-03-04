@@ -28,5 +28,8 @@ module RedmineCLI
 
     desc 'issue ...', m('desc.client.issue')
     subcommand 'issue', Subcommands::Issue
+
+    desc 'conf ...', m('desc.client.conf')
+    subcommand 'conf', Subcommands::Conf
   end
 end

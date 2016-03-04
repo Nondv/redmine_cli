@@ -1,7 +1,20 @@
 en:
-  test: '1234'
   desc:
     client:
-      :issue: 'Command for working with issues. See "redmine issue help"'
+      issue: 'Command for working with issues. See "redmine issue help"'
+      conf: 'Command for working with config file. See "redmine conf help"'
     issue:
       list: 'Lists issues of user. By default it is you'
+    conf:
+      init: 'Asks you few question to make your config file useful'
+
+  commands:
+    conf:
+      init:
+        enter_user: 'Enter your login to Redmine: '
+        enter_password: 'Enter your password: '
+        enter_site: 'Enter URL to your Redmine: '
+
+  thank_you: 'Thank you!'
+  error_try_again: 'Error! Try again.'
+  error_input_required: 'Input cant be empty.'
