@@ -1,9 +1,9 @@
 % max_id_len = issues.max_by { |i| i.id.size }.id.size
 % subject_limit = 60
 %
-% issues.group_by { |i| i.project.name }.each do |project, project_issues|
+% issues.group_by_project.each do |project, project_issues|
 
-<%= "[ #{project} ]".center(max_id_len + 3 + subject_limit + 3 + 8).red + "\n" %>
+<%= "[ #{project.name} ]".center(max_id_len + 3 + subject_limit + 3 + 8).red + "\n" %>
 <%= '(id)'.center(max_id_len).yellow %> | <%= '(subject)'.center(subject_limit).yellow %> | <%= "(status)\n".yellow %>
 <% project_issues.each do |i| %>
 <%= i.id.ljust(max_id_len) %>   <%= i.subject.cut(subject_limit).ljust(subject_limit) %>   <%= i.status.name %><%= "\n" %>

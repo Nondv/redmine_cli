@@ -1,7 +1,25 @@
 en:
-  test: '1234'
   desc:
     client:
-      :issue: 'Command for working with issues. See "redmine issue help"'
+      issue: 'Works with issues. See "redmine issue help"'
+      conf: 'Works with config file. See "redmine conf help"'
+      user: 'Works with users. See "redmine user help"'
     issue:
       list: 'Lists issues of user. By default it is you'
+      show: 'More info about issue'
+    conf:
+      init: 'Asks you few question to make your config file useful'
+    user:
+      find: 'Finds users by id|email|name. Without arguments it will show your info'
+
+  commands:
+    conf:
+      init:
+        enter_user: 'Enter your login to Redmine: '
+        enter_password: 'Enter your password: '
+        enter_site: 'Enter URL to your Redmine: '
+
+  thank_you: 'Thank you!'
+  error_try_again: 'Error! Try again.'
+  error_input_required: 'Input cant be empty.'
+  not_found: 'Not found'

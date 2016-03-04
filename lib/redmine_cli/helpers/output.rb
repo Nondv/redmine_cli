@@ -5,6 +5,15 @@ module RedmineCLI
     #
     module Output
       #
+      # for Helpers::Input
+      #
+      def print_prompt_message(text, params = {})
+        print text
+        print "[#{params[:default]}] " if params.key? :default
+        print "(#{params[:limited_to].join(', ')}) " if params[:limited_to].is_a? Array
+      end
+
+      #
       # Alias for TemplateRenderer#render
       #
       def erb(template, vars = {})

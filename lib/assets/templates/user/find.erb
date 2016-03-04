@@ -1,0 +1,12 @@
+% max_id_len = users.map { |u| u.id.size }.max
+% max_name_len = users.map { |u| u.firstname.size + u.lastname.size + 1 }.max
+% max_email_len = users.map { |u| u.mail? ? u.mail.size : 0 }.max
+%
+% if users.size > 1
+<%= 'id'.ljust(max_id_len).yellow %> | <%= 'name'.center(max_name_len).yellow %> | <%= 'e-mail'.center(max_email_len).yellow + "\n" %>
+% end
+%
+% users.each do |u|
+%   name = u.firstname + ' ' + u.lastname
+<%= u.id.ljust(max_id_len) %>   <%= name.ljust(max_name_len) %>   <%= "#{u.mail? && u.mail}\n" %>
+% end

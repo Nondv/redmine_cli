@@ -7,27 +7,22 @@ Why? Because web-browser + mouse sucks
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'redmine_cli'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
     $ gem install redmine_cli
 
 ## Usage
 
+    redmine help
+    redmine conf init
     redmine issue list [user id]
+    redmine issue show <issue id>
+    redmine user find vasya
+    redmine user find 123
+    redmine user find pupkin@yet.another.mail.com
+
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/redmine_cli.
+Bug reports and pull requests are welcome on GitHub at https://github.com/Nondv/redmine_cli.
 
 ## License
 

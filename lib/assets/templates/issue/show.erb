@@ -1,0 +1,24 @@
+
+ID:           <%= issue.id %>
+Subject:      <%= issue.subject %>
+Status:       <%= issue.status.name %>
+Priority:     <%= issue.priority.name %>
+Readiness:    <%= issue.done_ratio + '%' %>
+% if issue.project?
+Project:      <%= issue.project.name %>
+% end
+% if issue.version?
+Version:      <%= issue.version.name %>
+% end
+Assigned to:  <%= issue.assigned_to.name %> (<%= issue.assigned_to.id %>)
+Author:       <%= issue.author.name %> (<%= issue.author.id %>)
+% if issue.description? && !issue.description.empty?
+
+*****
+
+<%= issue.description %>
+
+
+*****
+% end
+

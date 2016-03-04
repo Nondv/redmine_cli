@@ -26,7 +26,21 @@ module RedmineCLI
   class Client < Thor
     extend Helpers::Output
 
+    map %w(--version -v) => :__print_version
+
+    desc '--version, -v', 'print the version'
+    # two underscores hides method from help
+    def __print_version
+      puts "redmine_cli version #{VERSION}"
+    end
+
     desc 'issue ...', m('desc.client.issue')
     subcommand 'issue', Subcommands::Issue
+
+    desc 'conf ...', m('desc.client.conf')
+    subcommand 'conf', Subcommands::Conf
+
+    desc 'user ...', m('desc.client.user')
+    subcommand 'user', Subcommands::User
   end
 end
