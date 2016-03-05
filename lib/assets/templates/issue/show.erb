@@ -1,4 +1,16 @@
 
+% info =  { 'ID' => issue.id,
+%           'Subject' => issue.subject,
+%           'Status' => issue.status.name,
+%           'Priority' => issue.priority.name,
+%           'Readiness' => issue.done_ratio + '%',
+%           'Assigned to' => "#{issue.assigned_to.name} (#{issue.assigned_to.id})",
+%           'Author' => "#{issue.author.name} (#{issue.author.id})" }
+%
+% info['Project'] = issue.project.name if issue.project?
+% info['Version'] = issue.version.name if issue.version?
+% info['Parent'] = "#{issue.parent.id} - #{issue.parent.reload.subject.cut(80)}" if issue.parent?
+%
 ID:           <%= issue.id %>
 Subject:      <%= issue.subject %>
 Status:       <%= issue.status.name %>
