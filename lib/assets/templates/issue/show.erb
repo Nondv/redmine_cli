@@ -12,6 +12,17 @@ Version:      <%= issue.version.name %>
 % end
 Assigned to:  <%= issue.assigned_to.name %> (<%= issue.assigned_to.id %>)
 Author:       <%= issue.author.name %> (<%= issue.author.id %>)
+% if issue.parent?
+Parent:       <%= issue.parent.id %> - <%= issue.parent.reload.subject.cut(80)%>
+% end
+%
+% if issue.children?
+Children:
+%   issue.children.each do |i|
+  * <%= i.id %> - <%= i.reload.subject.cut(70) %>
+%   end
+% end
+%
 % if issue.relations?
 Relations:
 %   issue.relations.each do |r|
