@@ -1,4 +1,5 @@
 
+% ljust_value = 15
 % info =  { 'ID' => issue.id,
 %           'Subject' => issue.subject,
 %           'Status' => issue.status.name,
@@ -11,21 +12,8 @@
 % info['Version'] = issue.version.name if issue.version?
 % info['Parent'] = "#{issue.parent.id} - #{issue.parent.reload.subject.cut(80)}" if issue.parent?
 %
-ID:           <%= issue.id %>
-Subject:      <%= issue.subject %>
-Status:       <%= issue.status.name %>
-Priority:     <%= issue.priority.name %>
-Readiness:    <%= issue.done_ratio + '%' %>
-% if issue.project?
-Project:      <%= issue.project.name %>
-% end
-% if issue.version?
-Version:      <%= issue.version.name %>
-% end
-Assigned to:  <%= issue.assigned_to.name %> (<%= issue.assigned_to.id %>)
-Author:       <%= issue.author.name %> (<%= issue.author.id %>)
-% if issue.parent?
-Parent:       <%= issue.parent.id %> - <%= issue.parent.reload.subject.cut(80)%>
+% info.each do |title, value|
+<%= "#{title}:".ljust(ljust_value) %> <%= value + "\n" %>
 % end
 %
 % if issue.children?
@@ -64,7 +52,6 @@ Relations:
 %   journals.reverse.each do |j|
 
 ----------
-% # puts j.inspect
 From:     <%= j.user.name %> (<%= j.user.id %>)
 Created:  <%= j.created_on %>
 
