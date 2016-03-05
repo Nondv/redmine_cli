@@ -24,11 +24,33 @@ Relations:
 % end
 %
 % if issue.description? && !issue.description.empty?
-*****
 
 <%= issue.description %>
 
 
-*****
 % end
+%
+% if issue.journals? && journals_limit > 0
+%   journals = []
+%   issue.journals.reverse.each do |j|
+%     break if journals.size > journals_limit
+%     next unless j.notes?
+%     journals.push j
+%   end
 
+%   journals.reverse.each do |j|
+
+----------
+% # puts j.inspect
+From:     <%= j.user.name %> (<%= j.user.id %>)
+Created:  <%= j.created_on %>
+
+*****
+
+<%= j.notes %>
+
+
+*****
+%   end
+
+% end
