@@ -46,12 +46,12 @@ module RedmineCLI
         return read_with_limitations(params) if params[:limited_to]
         return read_until_not_empty if params[:required]
 
-        gets.chomp
+        read_line
       end
 
       def read_until_not_empty
         loop do
-          input = gets.chomp
+          input = read_line
           return input unless input.empty?
 
           puts m(:error_input_required)
@@ -62,7 +62,7 @@ module RedmineCLI
         input = nil
 
         loop do
-          input = gets.chomp
+          input = read_line
           break if fit_in_limit?(input, params[:limited_to])
           return params[:default] if input.empty? && params.key?(:default)
 
@@ -78,6 +78,10 @@ module RedmineCLI
         return limit.include?(input) if limit.is_a? Array
 
         limit =~ input
+      end
+
+      def read_line
+        $stdin.gets.chomp
       end
     end
   end
