@@ -13,6 +13,7 @@ en:
           limit: 'Amount of comments (last journals).'
         update:
           done: 'Readiness percentage'
+          assign: 'ID of user issue will be assigned to'
     conf:
       init: 'Asks you few question to make your config file useful'
     user:
