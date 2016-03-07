@@ -28,8 +28,26 @@ module RedmineCLI
         puts m(:not_found)
       end
 
+      #
+      # TODO:
+      # * assigned to
+      # * status
+      # * estimated time
+      # * priority
+      # * description
+      # * comment
+      # * time entry
+      #
       desc 'update <id>', m('desc.issue.update')
+      option :done, aliases: '-d', type: :numeric, desc: m('desc.issue.options.update.done')
       def update(id)
+        issue = Models::Issue.find(id)
+
+        issue.done_ratio = options[:done] if options[:done]
+
+        puts m(issue.save ? :success : :error)
+      rescue ActiveResource::ResourceNotFound
+        puts m(:not_found)
       end
     end
   end

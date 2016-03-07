@@ -11,6 +11,8 @@ en:
       options:
         show:
           limit: 'Amount of comments (last journals).'
+        update:
+          done: 'Readiness percentage'
     conf:
       init: 'Asks you few question to make your config file useful'
     user:
@@ -27,3 +29,5 @@ en:
   error_try_again: 'Error! Try again.'
   error_input_required: 'Input cant be empty.'
   not_found: 'Not found'
+  success: 'success'
+  error: 'error'
