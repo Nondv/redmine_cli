@@ -23,6 +23,9 @@ module RedmineCLI
       option :limit, aliases: ['-l'], type: :numeric, default: 5, desc: m('desc.issue.options.show.limit')
       def show(id)
         puts erb('issue/show', issue: Models::Issue.find(id), journals_limit: options[:limit])
+      #
+      # WARNING: it can be raised by associations in template
+      #
       rescue ActiveResource::ResourceNotFound
         puts m(:not_found)
       end

@@ -5,9 +5,9 @@
 %           'Status' => issue.status.name,
 %           'Priority' => issue.priority.name,
 %           'Readiness' => issue.done_ratio + '%',
-%           'Assigned to' => "#{issue.assigned_to.name} (#{issue.assigned_to.id})",
 %           'Author' => "#{issue.author.name} (#{issue.author.id})" }
 %
+% info['Assigned to'] = "#{issue.assigned_to.name} (#{issue.assigned_to.id})" if issue.assigned_to?
 % info['Project'] = issue.project.name if issue.project?
 % info['Version'] = issue.version.name if issue.version?
 % info['Parent'] = "#{issue.parent.id} - #{issue.parent.reload.subject.cut(80)}" if issue.parent?
@@ -61,6 +61,7 @@
 <%= j.notes %>
 
 
+%     end
 %   end
 
 % end
