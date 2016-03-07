@@ -1,12 +1,14 @@
 require 'erb'
 require 'colorize'
 
+require_relative 'config'
+
 module RedmineCLI
   #
   # Renders templates
   #
   module TemplateRenderer
-    @template_directory = File.expand_path('../../assets/templates', __FILE__)
+    @template_directory = File.expand_path("../../assets/templates/#{Config.locale}", __FILE__)
 
     #
     # finds template and renders it

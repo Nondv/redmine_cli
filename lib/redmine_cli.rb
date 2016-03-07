@@ -9,7 +9,7 @@ Dir[File.expand_path('../redmine_cli/helpers/*.rb', __FILE__)].each { |f| requir
 
 require 'redmine_cli/version'
 require 'redmine_cli/config'
-I18n.locale = RedmineCLI::Config['locale'] || :en
+I18n.locale = RedmineCLI::Config['locale']
 
 require 'redmine_cli/template_renderer'
 Dir[File.expand_path('../redmine_cli/subcommands/*.rb', __FILE__)].each { |f| require f }
