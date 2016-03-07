@@ -1,3 +1,3 @@
 module RedmineCLI
-  VERSION = '0.3.0-locale'.freeze
+  VERSION = '0.3.0-issue.update'.freeze
 end
