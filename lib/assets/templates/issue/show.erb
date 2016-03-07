@@ -10,7 +10,9 @@ Project:      <%= issue.project.name %>
 % if issue.version?
 Version:      <%= issue.version.name %>
 % end
+% if issue.assigned_to?
 Assigned to:  <%= issue.assigned_to.name %> (<%= issue.assigned_to.id %>)
+% end
 Author:       <%= issue.author.name %> (<%= issue.author.id %>)
 % if issue.description? && !issue.description.empty?
 
