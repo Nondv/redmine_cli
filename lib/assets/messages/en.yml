@@ -7,6 +7,9 @@ en:
     issue:
       list: 'Lists issues of user. By default it is you'
       show: 'More info about issue'
+      options:
+        show:
+          limit: 'Amount of comments (last journals).'
     conf:
       init: 'Asks you few question to make your config file useful'
     user:
