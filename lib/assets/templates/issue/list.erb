@@ -1,4 +1,11 @@
-% max_id_len = issues.max_by { |i| i.id.size }.id.size
+% if issues.size.zero?
+There're no issues assigned to you
+% end
+%
+% #
+% # It's ok, it won't print anything
+% #
+% max_id_len = issues.map { |i| i.id.size }.max
 % subject_limit = 60
 %
 % issues.group_by_project.each do |project, project_issues|
