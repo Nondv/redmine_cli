@@ -22,6 +22,9 @@ module RedmineCLI
       desc 'show <id>', m('desc.issue.show')
       def show(id)
         puts erb('issue/show', issue: Models::Issue.find(id))
+      #
+      # WARNING: it can be raised by associations in template
+      #
       rescue ActiveResource::ResourceNotFound
         puts m(:not_found)
       end
