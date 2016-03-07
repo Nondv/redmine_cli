@@ -11,6 +11,25 @@ module RedmineCLI
       include Helpers::Output
 
       #
+      # Parses time from user's input.
+      # Formats: HH:MM; M; H.h
+      #
+      # @param input [String]
+      #
+      def parse_time(input)
+        fail(BadInputTime) unless input =~ /^\d+[\:\.]?\d*/
+
+        if input.include?(':')
+          h, m = input.split(':').map(&:to_i)
+          (60 * h + m) / 60.0
+        elsif input.include?('.')
+          input.to_f
+        else
+          input.to_i
+        end
+      end
+
+      #
       # #ask with :limited_to set to url regexp
       #
       def ask_url(text, params = {})

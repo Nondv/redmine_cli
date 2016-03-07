@@ -14,6 +14,7 @@ en:
         update:
           done: 'Readiness percentage'
           assign: 'ID of user issue will be assigned to'
+          time: 'Add time entry. Formats: HH:MM; M (minutes); H.h (hours in float)'
     conf:
       init: 'Asks you few question to make your config file useful'
     user:
@@ -32,3 +33,5 @@ en:
   not_found: 'Not found'
   success: 'success'
   error: 'error'
+  wrong_format: 'Wrong format'
+  creation_error: 'Creation error'
