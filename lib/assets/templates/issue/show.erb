@@ -13,18 +13,18 @@
 % info['Parent'] = "#{issue.parent.id} - #{issue.parent.reload.subject.cut(80)}" if issue.parent?
 %
 % info.each do |title, value|
-<%= "#{title}:".ljust(ljust_value) %> <%= value + "\n" %>
+<%= "#{title}:".ljust(ljust_value).yellow %> <%= value + "\n" %>
 % end
 %
 % if issue.children?
-Children:
+<%= 'Children'.yellow %>:
 %   issue.children.each do |i|
   * <%= i.id %> - <%= i.reload.subject.cut(70) %>
 %   end
 % end
 %
 % if issue.relations?
-Relations:
+<%= 'Relations'.yellow %>:
 %   issue.relations.each do |r|
 %     issue_id = r.prefix_options[:issue_id]
 %     issue_to_id = r.issue_to_id
@@ -51,16 +51,16 @@ Relations:
 
 %   journals.reverse.each do |j|
 
-----------
-From:     <%= j.user.name %> (<%= j.user.id %>)
-Created:  <%= j.created_on %>
-
-*****
+<%= "----------\n".yellow %>
+%     journal_info = { 'From' => "#{j.user.name} (#{j.user.id})",
+%                      'Created' => j.created_on }
+%
+%     journal_info.each do |k, v|
+<%= k.ljust(ljust_value).yellow %>: <%= v %>
 
 <%= j.notes %>
 
 
-*****
 %   end
 
 % end
