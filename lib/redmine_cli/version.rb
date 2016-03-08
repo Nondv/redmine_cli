@@ -1,3 +1,3 @@
 module RedmineCLI
-  VERSION = '0.3.0-input.from.text.editor'.freeze
+  VERSION = '0.3.0-issue.update.comment'.freeze
 end
