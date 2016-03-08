@@ -16,6 +16,7 @@ en:
           assign: 'ID of user issue will be assigned to'
           time: 'Add time entry. Formats: HH:MM; M (minutes); H.h (hours in float)'
           status: 'Change status of issue. Search by status name substring'
+          comment: 'Leave comment. It will open your text editor.'
     conf:
       init: 'Asks you few question to make your config file useful'
     user:
@@ -27,6 +28,9 @@ en:
         enter_user: 'Enter your login to Redmine: '
         enter_password: 'Enter your password: '
         enter_site: 'Enter URL to your Redmine: '
+    issue:
+      update:
+        type_comment_here: 'Type your comment here, save file and close'
 
   thank_you: 'Thank you!'
   error_try_again: 'Error! Try again.'
