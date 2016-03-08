@@ -7,9 +7,15 @@ en:
     issue:
       list: 'Lists issues of user. By default it is you'
       show: 'More info about issue'
+      update: 'Change some issue params, add time entry, comment'
       options:
         show:
           limit: 'Amount of comments (last journals).'
+        update:
+          done: 'Readiness percentage'
+          assign: 'ID of user issue will be assigned to'
+          time: 'Add time entry. Formats: HH:MM; M (minutes); H.h (hours in float)'
+          status: 'Change status of issue. Search by status name substring'
     conf:
       init: 'Asks you few question to make your config file useful'
     user:
@@ -26,3 +32,8 @@ en:
   error_try_again: 'Error! Try again.'
   error_input_required: 'Input cant be empty.'
   not_found: 'Not found'
+  success: 'success'
+  error: 'error'
+  wrong_format: 'Wrong format'
+  creation_error: 'Creation error'
+  enter_object_number: 'Enter object number: '
