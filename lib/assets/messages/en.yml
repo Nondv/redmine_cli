@@ -17,6 +17,7 @@ en:
           time: 'Add time entry. Formats: HH:MM; M (minutes); H.h (hours in float)'
           status: 'Change status of issue. Search by status name substring'
           comment: 'Leave comment. It will open your text editor.'
+          description: 'Change description with your text editor.'
     conf:
       init: 'Asks you few question to make your config file useful'
     user:
