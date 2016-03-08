@@ -11,4 +11,6 @@ require 'redmine_cli'
 # Pry.start
 
 require 'irb'
+
+ActiveResource::Base.logger = Logger.new(STDOUT)
 IRB.start
