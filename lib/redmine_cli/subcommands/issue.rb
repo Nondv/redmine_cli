@@ -30,7 +30,6 @@ module RedmineCLI
 
       #
       # TODO:
-      # * status
       # * estimated time
       # * priority
       # * subject
@@ -45,6 +44,7 @@ module RedmineCLI
       option :done,          type: :numeric, aliases: '-d', desc: m('desc.issue.options.update.done')
       option :assign,        type: :numeric, aliases: '-a', desc: m('desc.issue.options.update.assign')
       option :time,          type: :string, aliases: '-t', desc: m('desc.issue.options.update.time')
+      option :status,        type: :string, aliases: '-s', desc: m('desc.issue.options.update.status')
       def update(id)
         # load helpers inside instance method for better performance
         self.class.include Helpers::Issue::Update
