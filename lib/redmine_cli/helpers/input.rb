@@ -1,4 +1,5 @@
 require 'uri'
+require 'tempfile'
 
 require_relative 'output'
 
@@ -9,6 +10,21 @@ module RedmineCLI
     #
     module Input
       include Helpers::Output
+
+      def ask_from_text_editor(welcome_message = '')
+        file = Tempfile.open('redmine_cli') do |f|
+          f.write welcome_message
+          f
+        end
+
+        editor = Config['editor'] || ENV['EDITOR'] || 'nano'
+
+        system(editor + ' ' + file.path)
+        result = File.read(file)
+        file.unlink
+
+        result
+      end
 
       #
       # prints names as enumerable list and asks user for element
