@@ -13,10 +13,11 @@ module RedmineCLI
         def update_issue(issue)
           @errors = []
 
+          update_description(issue)
+          leave_comment(issue)
           update_done_ratio(issue)
           update_assigned_to(issue)
           update_status(issue)
-          leave_comment(issue)
 
           # it should be last, because it creates new object
           add_time_entry_to_issue(issue) if @errors.empty?
@@ -49,6 +50,12 @@ module RedmineCLI
           when 1 then issue.status_id = found_statuses.first.id
           else issue.status_id = ask_for_object(found_statuses).id
           end
+        end
+
+        def update_description(issue)
+          return unless options[:description]
+
+          issue.description = ask_from_text_editor(issue.description || '')
         end
 
         def leave_comment(issue)
