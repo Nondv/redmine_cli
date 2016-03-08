@@ -15,6 +15,7 @@ en:
           done: 'Readiness percentage'
           assign: 'ID of user issue will be assigned to'
           time: 'Add time entry. Formats: HH:MM; M (minutes); H.h (hours in float)'
+          status: 'Change status of issue. Search by status name substring'
     conf:
       init: 'Asks you few question to make your config file useful'
     user:
@@ -35,3 +36,4 @@ en:
   error: 'error'
   wrong_format: 'Wrong format'
   creation_error: 'Creation error'
+  enter_object_number: 'Enter object number: '

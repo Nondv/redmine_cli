@@ -11,6 +11,25 @@ module RedmineCLI
       include Helpers::Output
 
       #
+      # prints names as enumerable list and asks user for element
+      #
+      def ask_for_object(object_list)
+        fail EmptyList if object_list.size.zero?
+
+        # From 1
+        i = 0
+        object_list = object_list.map { |obj| [(i += 1), obj] }.to_h
+
+        print_object_list(object_list)
+        puts
+        input = ask m(:enter_object_number),
+                    default: '1',
+                    limited_to: ->(str) { (1..i).cover? str.to_i }
+
+        object_list[input.to_i]
+      end
+
+      #
       # Parses time from user's input.
       # Formats: HH:MM; M; H.h
       #
@@ -92,11 +111,13 @@ module RedmineCLI
       end
 
       def fit_in_limit?(input, limit)
-        fail('limit should be Array or Regexp') unless limit.is_a?(Array) || limit.is_a?(Regexp)
+        case limit
+        when Array then limit.include?(input)
+        when Proc then limit.call(input)
+        when Regexp then limit =~ input
 
-        return limit.include?(input) if limit.is_a? Array
-
-        limit =~ input
+        else fail('limit should be Array or Regexp or Proc')
+        end
       end
 
       def read_line
