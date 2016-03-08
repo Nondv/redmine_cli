@@ -56,12 +56,14 @@
 %                      'Created' => j.created_on }
 %
 %     journal_info.each do |k, v|
-<%= k.ljust(ljust_value).yellow %>: <%= v %>
+<%= "#{k}:".ljust(ljust_value).yellow %> <%= v %>
+
+%     end
+
 
 <%= j.notes %>
 
 
-%     end
 %   end
 
 % end
