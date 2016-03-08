@@ -27,7 +27,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'thor', '~> 0.19'
   spec.add_dependency 'i18n', '~> 0.7'
-  spec.add_dependency 'redmine_rest', '0.2.0'
+  spec.add_dependency 'redmine_rest', '0.4.0'
   spec.add_dependency 'non_config', '0.1.2'
   spec.add_dependency 'colorize', '~> 0.7'
 end

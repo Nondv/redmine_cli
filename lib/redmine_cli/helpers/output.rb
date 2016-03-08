@@ -5,6 +5,18 @@ module RedmineCLI
     #
     module Output
       #
+      # for Helpers::Input.
+      #
+      # Prints keys of `list` and `value.name`
+      #
+      # @param list [Hash]
+      #
+      def print_object_list(list)
+        key_max_len = list.keys.map { |key| key.to_s.size }.max
+        list.each { |k, v| puts "#{k.to_s.ljust(key_max_len)} - #{v.name}" }
+      end
+
+      #
       # for Helpers::Input
       #
       def print_prompt_message(text, params = {})

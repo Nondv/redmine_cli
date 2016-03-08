@@ -15,6 +15,8 @@ Why? Because web-browser + mouse sucks
     redmine conf init
     redmine issue list [user id]
     redmine issue show <issue id>
+    redmine issue update <issue id> --comment --done 80  --status progress --time 00:30
+
     redmine user find vasya
     redmine user find 123
     redmine user find pupkin@yet.another.mail.com

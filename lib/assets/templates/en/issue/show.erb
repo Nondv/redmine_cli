@@ -1,0 +1,69 @@
+
+% ljust_value = 15
+% info =  { 'ID' => issue.id,
+%           'Subject' => issue.subject,
+%           'Status' => issue.status.name,
+%           'Priority' => issue.priority.name,
+%           'Readiness' => issue.done_ratio + '%',
+%           'Author' => "#{issue.author.name} (#{issue.author.id})" }
+%
+% info['Assigned to'] = "#{issue.assigned_to.name} (#{issue.assigned_to.id})" if issue.assigned_to?
+% info['Project'] = issue.project.name if issue.project?
+% info['Version'] = issue.version.name if issue.version?
+% info['Parent'] = "#{issue.parent.id} - #{issue.parent.reload.subject.cut(80)}" if issue.parent?
+%
+% info.each do |title, value|
+<%= "#{title}:".ljust(ljust_value).yellow %> <%= value + "\n" %>
+% end
+%
+% if issue.children?
+<%= 'Children'.yellow %>:
+%   issue.children.each do |i|
+  * <%= i.id %> - <%= i.reload.subject.cut(70) %>
+%   end
+% end
+%
+% if issue.relations?
+<%= 'Relations'.yellow %>:
+%   issue.relations.each do |r|
+%     issue_id = r.prefix_options[:issue_id]
+%     issue_to_id = r.issue_to_id
+%     relation_type = r.relation_type
+  * <%= issue_id == issue.id ? 'this' : issue_id %> <%= relation_type %> <%= issue_to_id == issue.id ? 'this' : issue_to_id %>
+%   end
+
+% end
+%
+% if issue.description? && !issue.description.empty?
+
+<%= issue.description %>
+
+
+% end
+%
+% if issue.journals? && journals_limit > 0
+%   journals = []
+%   issue.journals.reverse.each do |j|
+%     break if journals.size > journals_limit
+%     next unless j.notes?
+%     journals.push j
+%   end
+
+%   journals.reverse.each do |j|
+
+<%= "----------\n".yellow %>
+%     journal_info = { 'From' => "#{j.user.name} (#{j.user.id})",
+%                      'Created' => j.created_on }
+%
+%     journal_info.each do |k, v|
+<%= "#{k}:".ljust(ljust_value).yellow %> <%= v %>
+
+%     end
+
+
+<%= j.notes %>
+
+
+%   end
+
+% end
