@@ -65,10 +65,11 @@ module RedmineCLI
       end
 
       #
-      # #ask with :limited_to set to url regexp
+      # #ask with :limited_to set to url regexp.
+      # TODO: make good regexp
       #
       def ask_url(text, params = {})
-        params[:limited_to] = /\A#{URI.regexp(%w('http', 'https'))}\z/
+        params[:limited_to] = /\S*/
         ask(text, params)
       end
 
