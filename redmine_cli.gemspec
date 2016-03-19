@@ -30,4 +30,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'redmine_rest', '0.5.0'
   spec.add_dependency 'non_config', '0.1.2'
   spec.add_dependency 'colorize', '~> 0.7'
+  spec.add_dependency 'unicode', '~> 0.4'
 end
