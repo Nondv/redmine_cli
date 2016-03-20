@@ -16,6 +16,7 @@ module RedmineCLI
           set_tracker
           set_subject
           set_description
+          set_assignee
         end
 
         def set_tracker
@@ -32,6 +33,12 @@ module RedmineCLI
           message = m('commands.issue.create.write_description')
           input = ask_from_text_editor(message)
           @issue.description = input if input.present? && input != message
+        end
+
+        def set_assignee
+          @assignee = ask_for_user m('commands.issue.create.enter_assignee_id'),
+                                   required: false
+          @issue.assigned_to_id = @assignee.id
         end
       end
     end

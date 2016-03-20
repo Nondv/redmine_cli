@@ -36,6 +36,7 @@ en:
       create:
         enter_subject: 'Enter subject: '
         write_description: 'Write issue description here.'
+        enter_assignee_id: 'Enter ID of user issue will be assigned to: '
 
   thank_you: 'Thank you!'
   error_try_again: 'Error! Try again.'
