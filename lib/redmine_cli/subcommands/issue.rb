@@ -59,6 +59,17 @@ module RedmineCLI
       rescue ActiveResource::ResourceNotFound
         puts m(:not_found)
       end
+
+      desc 'create', m('desc.issue.create')
+      def create
+        self.class.include Helpers::Issue::Create
+
+        @issue = Models::Issue.new
+        set_attributes
+
+        @issue.save
+        puts 'Done.'
+      end
     end
   end
 end

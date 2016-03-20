@@ -11,6 +11,19 @@ module RedmineCLI
     module Input
       include Helpers::Output
 
+      def ask_for_user(message, params = {})
+        params[:limited_to] = proc do |input|
+          begin
+            @ask_for_user_cache = RedmineRest::Models::User.find(input) # save record
+          rescue
+            nil
+          end
+        end
+
+        ask(message, params)
+        @ask_for_user_cache
+      end
+
       def ask_from_text_editor(welcome_message = '')
         file = Tempfile.open('redmine_cli') do |f|
           f.write welcome_message
@@ -38,7 +51,7 @@ module RedmineCLI
 
         print_object_list(object_list)
         puts
-        input = ask m(:enter_object_number),
+        input = ask m(:select_item_from_list),
                     default: '1',
                     limited_to: ->(str) { (1..i).cover? str.to_i }
 
@@ -70,7 +83,10 @@ module RedmineCLI
       #
       def ask_url(text, params = {})
         params[:limited_to] = /\S*/
-        ask(text, params)
+        url = ask(text, params).strip
+        url = "http://#{url}" unless url =~ %r{\Ahttps?://}
+
+        url
       end
 
       #

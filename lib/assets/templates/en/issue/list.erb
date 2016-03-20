@@ -3,17 +3,33 @@ There're no issues assigned to you
 % end
 %
 % #
-% # It's ok, it won't print anything
+% # It's ok, it won't print anything if there's no issues
 % #
-% max_id_len = issues.map { |i| i.id.size }.max
-% subject_limit = 60
-%
-% issues.group_by_project.each do |project, project_issues|
 
-<%= "[ #{project.name} ]".center(max_id_len + 3 + subject_limit + 3 + 8).red + "\n" %>
-<%= '(id)'.center(max_id_len).yellow %> | <%= '(subject)'.center(subject_limit).yellow %> | <%= "(status)\n".yellow %>
-<% project_issues.each do |i| %>
-<%= i.id.ljust(max_id_len) %>   <%= i.subject.cut(subject_limit).ljust(subject_limit) %>   <%= i.status.name %><%= "\n" %>
-<% end %>
+% issues.group_by_project.each do |project, project_issues|
+%   max_id_len = project_issues.map { |i| i.id.size }.max
+%   max_id_len = ['(id)'.size, max_id_len].max
+%   head_id = '(id)'.center(max_id_len).yellow
+%
+%   max_priority_len = project_issues.map { |i| i.priority.name.size }.max
+%   max_priority_len = ['(priority)'.size, max_priority_len].max
+%   head_priority = '(priority)'.center(max_priority_len).yellow
+%
+%   subject_limit = 70
+%   max_subject_len = project_issues.map { |i| i.subject.size }.max
+%   max_subject_len = [max_subject_len, subject_limit].min
+%   head_subject =  '(subject)'.center(max_subject_len).yellow
+%
+%   max_status_len = project_issues.map { |i| i.status.name.size }.max
+%   max_status_len = [max_status_len, '(status)'.size].max
+%   head_status = '(status)'.center(max_status_len).yellow
+%
+<%= "[ #{project.name} ]".center(max_id_len + 3 + max_priority_len + 3 + max_status_len + 3 + max_subject_len).red + "\n" %>
+<%= head_id %> | <%= head_priority %> | <%= head_status %> | <%= head_subject %>
+
+%   project_issues.each do |i|
+<%= i.id.ljust(max_id_len) %>   <%= i.priority.name.center(max_priority_len) %>   <%= i.status.name.center(max_status_len) %>   <%= i.subject.cut(max_subject_len) + "\n" %>
+%   end
+
 
 % end
