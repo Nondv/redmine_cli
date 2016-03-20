@@ -83,7 +83,10 @@ module RedmineCLI
       #
       def ask_url(text, params = {})
         params[:limited_to] = /\S*/
-        ask(text, params)
+        url = ask(text, params).strip
+        url = "http://#{url}" unless url =~ %r{\Ahttps?://}
+
+        url
       end
 
       #
