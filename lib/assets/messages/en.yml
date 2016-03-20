@@ -8,6 +8,7 @@ en:
       list: 'Lists issues of user. By default it is you'
       show: 'More info about issue'
       update: 'Change some issue params, add time entry, comment'
+      create: 'Create issue'
       options:
         show:
           limit: 'Amount of comments (last journals).'
@@ -42,3 +43,5 @@ en:
   wrong_format: 'Wrong format'
   creation_error: 'Creation error'
   enter_object_number: 'Enter object number: '
+  trackers: 'trackers'
+
