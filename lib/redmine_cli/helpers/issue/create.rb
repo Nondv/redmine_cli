@@ -13,10 +13,17 @@ module RedmineCLI
         private
 
         def set_attributes
+          set_project
           set_tracker
           set_subject
           set_description
           set_assignee
+        end
+
+        def set_project
+          puts Unicode.upcase(m(:projects)) + ':'
+          @project = ask_for_object(Models::Project.all)
+          @issue.project_id = @project.id
         end
 
         def set_tracker
