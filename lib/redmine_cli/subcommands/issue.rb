@@ -67,7 +67,8 @@ module RedmineCLI
         @issue = Models::Issue.new
         set_attributes
 
-        @issue
+        @issue.save
+        puts 'Done.'
       end
     end
   end
