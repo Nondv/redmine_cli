@@ -15,6 +15,7 @@ module RedmineCLI
         def set_attributes
           set_tracker
           set_subject
+          set_description
         end
 
         def set_tracker
@@ -25,6 +26,12 @@ module RedmineCLI
         def set_subject
           @issue.subject = ask m('commands.issue.create.enter_subject'),
                                required: true
+        end
+
+        def set_description
+          message = m('commands.issue.create.write_description')
+          input = ask_from_text_editor(message)
+          @issue.description = input if input.present? && input != message
         end
       end
     end

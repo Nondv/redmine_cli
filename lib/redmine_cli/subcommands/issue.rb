@@ -65,7 +65,6 @@ module RedmineCLI
         self.class.include Helpers::Issue::Create
 
         @issue = Models::Issue.new
-
         set_attributes
 
         @issue
