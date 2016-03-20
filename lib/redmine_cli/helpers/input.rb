@@ -51,7 +51,7 @@ module RedmineCLI
 
         print_object_list(object_list)
         puts
-        input = ask m(:enter_object_number),
+        input = ask m(:select_item_from_list),
                     default: '1',
                     limited_to: ->(str) { (1..i).cover? str.to_i }
 

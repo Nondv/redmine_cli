@@ -36,7 +36,7 @@ en:
       create:
         enter_subject: 'Enter subject: '
         write_description: 'Write issue description here.'
-        enter_assignee_id: 'Enter ID of user issue will be assigned to: '
+        assign_to: 'ASSIGN TO:'
 
   thank_you: 'Thank you!'
   error_try_again: 'Error! Try again.'
@@ -46,7 +46,7 @@ en:
   error: 'error'
   wrong_format: 'Wrong format'
   creation_error: 'Creation error'
-  enter_object_number: 'Enter object number: '
+  select_item_from_list: 'Select item from list: '
   trackers: 'trackers'
   projects: 'projects'
 

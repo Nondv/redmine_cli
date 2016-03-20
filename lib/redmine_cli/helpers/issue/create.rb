@@ -28,7 +28,7 @@ module RedmineCLI
 
         def set_tracker
           puts Unicode.upcase(m(:trackers)) + ':'
-          @issue.tracker_id = ask_for_object(Models::Tracker.all).id
+          @issue.tracker_id = ask_for_object(@project.trackers).id
         end
 
         def set_subject
@@ -43,8 +43,8 @@ module RedmineCLI
         end
 
         def set_assignee
-          @assignee = ask_for_user m('commands.issue.create.enter_assignee_id'),
-                                   required: false
+          puts m('commands.issue.create.assign_to')
+          @assignee = ask_for_object(@project.members)
           @issue.assigned_to_id = @assignee.id
         end
       end
