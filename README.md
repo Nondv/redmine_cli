@@ -3,7 +3,7 @@
 
 Command-Line Interface for Redmine.
 
-Why? Because web-browser + mouse sucks
+Why? 'cause web-browser + mouse sucks
 
 ## Installation
 
@@ -16,6 +16,7 @@ Why? Because web-browser + mouse sucks
     redmine issue list [user id]
     redmine issue show <issue id>
     redmine issue update <issue id> --comment --done 80  --status progress --time 00:30
+    redmine issue create
 
     redmine user find vasya
     redmine user find 123
