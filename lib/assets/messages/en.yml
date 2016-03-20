@@ -8,6 +8,7 @@ en:
       list: 'Lists issues of user. By default it is you'
       show: 'More info about issue'
       update: 'Change some issue params, add time entry, comment'
+      create: 'Create issue'
       options:
         show:
           limit: 'Amount of comments (last journals).'
@@ -32,6 +33,10 @@ en:
     issue:
       update:
         type_comment_here: 'Type your comment here, save file and close'
+      create:
+        enter_subject: 'Enter subject: '
+        write_description: 'Write issue description here.'
+        enter_assignee_id: 'Enter ID of user issue will be assigned to: '
 
   thank_you: 'Thank you!'
   error_try_again: 'Error! Try again.'
@@ -42,3 +47,6 @@ en:
   wrong_format: 'Wrong format'
   creation_error: 'Creation error'
   enter_object_number: 'Enter object number: '
+  trackers: 'trackers'
+  projects: 'projects'
+

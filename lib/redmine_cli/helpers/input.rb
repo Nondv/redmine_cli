@@ -11,6 +11,19 @@ module RedmineCLI
     module Input
       include Helpers::Output
 
+      def ask_for_user(message, params = {})
+        params[:limited_to] = proc do |input|
+          begin
+            @ask_for_user_cache = RedmineRest::Models::User.find(input) # save record
+          rescue
+            nil
+          end
+        end
+
+        ask(message, params)
+        @ask_for_user_cache
+      end
+
       def ask_from_text_editor(welcome_message = '')
         file = Tempfile.open('redmine_cli') do |f|
           f.write welcome_message
