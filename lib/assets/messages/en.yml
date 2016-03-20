@@ -33,6 +33,8 @@ en:
     issue:
       update:
         type_comment_here: 'Type your comment here, save file and close'
+      create:
+        enter_subject: 'Enter subject: '
 
   thank_you: 'Thank you!'
   error_try_again: 'Error! Try again.'
