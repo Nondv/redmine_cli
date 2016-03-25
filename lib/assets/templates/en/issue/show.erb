@@ -9,7 +9,7 @@
 %
 % info['Assigned to'] = "#{issue.assigned_to.name} (#{issue.assigned_to.id})" if issue.assigned_to?
 % info['Project'] = issue.project.name if issue.project?
-% info['Version'] = issue.version.name if issue.version?
+% info['Version'] = issue.fixed_version.name if issue.fixed_version?
 % info['Parent'] = "#{issue.parent.id} - #{issue.parent.reload.subject.cut(80)}" if issue.parent?
 %
 % info.each do |title, value|
