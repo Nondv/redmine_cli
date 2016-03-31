@@ -1,3 +1,3 @@
 module RedmineCLI
-  VERSION = '0.5.0-select.member'.freeze
+  VERSION = '0.5.0-project.subcommand'.freeze
 end
