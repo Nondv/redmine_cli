@@ -40,7 +40,7 @@ module RedmineCLI
       #
       desc 'update <id>', m('desc.issue.update')
       option :done,          type: :numeric, aliases: '-d', desc: m('desc.issue.options.update.done')
-      option :assign,        type: :numeric, aliases: '-a', desc: m('desc.issue.options.update.assign')
+      option :assign,        type: :string, aliases: '-a', desc: m('desc.issue.options.update.assign')
       option :time,          type: :string, aliases: '-t', desc: m('desc.issue.options.update.time')
       option :status,        type: :string, aliases: '-s', desc: m('desc.issue.options.update.status')
       option :comment,       type: :boolean, aliases: '-c', desc: m('desc.issue.options.update.comment')
