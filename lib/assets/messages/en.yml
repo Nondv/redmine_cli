@@ -26,6 +26,7 @@ en:
       find: 'Finds users by id|email|name. Without arguments it will show your info'
     project:
       list: 'Just lists project name with IDs'
+      members: 'Lists members of given project'
   commands:
     conf:
       init:
