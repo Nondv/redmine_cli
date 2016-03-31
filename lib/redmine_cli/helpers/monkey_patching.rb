@@ -7,4 +7,10 @@ class String
 
     self[0...max_chars - 3] + '...'
   end
+
+  def numeric?
+    Integer(self)
+  rescue
+    false
+  end
 end
