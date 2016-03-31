@@ -22,6 +22,19 @@ Why? 'cause web-browser + mouse sucks
     redmine user find 123
     redmine user find pupkin@yet.another.mail.com
 
+    redmine project list
+    redmine project members 1
+    redmine project members trololo
+
+Don't forget about console aliases!
+I use something like this:
+
+    # alias i='redmine issue'
+    # by the way, Thor can guess your commands so:
+
+    $ i s 123
+    $ i u --assign 'vasya pupkin'
+
 
 ## Contributing
 
