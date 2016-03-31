@@ -6,6 +6,24 @@ module RedmineCLI
     extend Helpers::Input
 
     #
+    # Processes string and tries to find project
+    #
+    def self.parse_project(value)
+      by_id = RedmineRest::Models::Project.find_by_id(value) if value.numeric?
+      return by_id if by_id
+
+      found_projects = RedmineRest::Models::Project.all.filter_by_name_substring(value)
+      case found_projects.size
+      when 0 then fail(ProjectNotFound)
+      when 1 then found_projects.first
+      else ask_for_object(found_projects)
+      end
+
+    rescue ActiveResource::ResourceNotFound, ActiveResource::ForbiddenAccess
+      raise ProjectNotFound
+    end
+
+    #
     # Processes string and tries to find user
     #
     # @return [RedmineRest::Models::User]
