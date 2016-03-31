@@ -16,7 +16,10 @@ module RedmineCLI
       def list(id = 'current')
         fail('new config') if Config.new?
 
-        puts erb('issue/list', issues: Models::User.find(id).issues)
+        user = InputParser.parse_user(id)
+        puts erb('issue/list', issues: user.issues)
+      rescue UserNotFound
+        puts "User #{m(:not_found)}"
       end
 
       desc 'show <id>', m('desc.issue.show')
