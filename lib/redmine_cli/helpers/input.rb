@@ -12,16 +12,10 @@ module RedmineCLI
       include Helpers::Output
 
       def ask_for_user(message, params = {})
-        params[:limited_to] = proc do |input|
-          begin
-            @ask_for_user_cache = RedmineRest::Models::User.find(input) # save record
-          rescue
-            nil
-          end
-        end
+        params[:limited_to] = ->(input) { @cached_user = RedmineRest::Models::User.find_by_id(input) }
 
         ask(message, params)
-        @ask_for_user_cache
+        @cached_user
       end
 
       def ask_from_text_editor(welcome_message = '')
@@ -56,25 +50,6 @@ module RedmineCLI
                     limited_to: ->(str) { (1..i).cover? str.to_i }
 
         object_list[input.to_i]
-      end
-
-      #
-      # Parses time from user's input.
-      # Formats: HH:MM; M; H.h
-      #
-      # @param input [String]
-      #
-      def parse_time(input)
-        fail(BadInputTime) unless input =~ /^\d+[\:\.]?\d*/
-
-        if input.include?(':')
-          h, m = input.split(':').map(&:to_i)
-          (60 * h + m) / 60.0
-        elsif input.include?('.')
-          input.to_f
-        else
-          input.to_i
-        end
       end
 
       #

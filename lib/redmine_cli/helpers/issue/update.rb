@@ -70,7 +70,7 @@ module RedmineCLI
         def add_time_entry_to_issue(issue)
           return unless options[:time]
 
-          hours = parse_time(options[:time])
+          hours = InputParser.parse_time(options[:time])
           entry = Models::TimeEntry.create issue_id: issue.id,
                                            hours: hours
 
