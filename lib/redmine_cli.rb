@@ -44,5 +44,8 @@ module RedmineCLI
 
     desc 'user ...', m('desc.client.user')
     subcommand 'user', Subcommands::User
+
+    desc 'project ...', m('desc.client.project')
+    subcommand 'project', Subcommands::Project
   end
 end
