@@ -32,12 +32,9 @@ module RedmineCLI
 
         def update_assigned_to(issue)
           return unless options[:assign]
+          issue.assigned_to_id = InputParser.parse_user(options[:assign], project: issue.project).id
 
-          # it can raise exception if there's no such user
-          Models::User.find(options[:assign])
-          issue.assigned_to_id = options[:assign]
-
-        rescue ActiveResource::ResourceNotFound
+        rescue UserNotFound
           @errors.push "Assigned: #{m(:not_found)}"
         end
 
