@@ -4,6 +4,7 @@ en:
       issue: 'Works with issues. See "redmine issue help"'
       conf: 'Works with config file. See "redmine conf help"'
       user: 'Works with users. See "redmine user help"'
+      project: 'Works with projects. See "redmine project help"'
     issue:
       list: 'Lists issues of user. By default it is you'
       show: 'More info about issue'
@@ -14,7 +15,7 @@ en:
           limit: 'Amount of comments (last journals).'
         update:
           done: 'Readiness percentage'
-          assign: 'ID of user issue will be assigned to'
+          assign: 'ID of name part of user issue will be assigned to'
           time: 'Add time entry. Formats: HH:MM; M (minutes); H.h (hours in float)'
           status: 'Change status of issue. Search by status name substring'
           comment: 'Leave comment. It will open your text editor.'
@@ -23,7 +24,9 @@ en:
       init: 'Asks you few question to make your config file useful'
     user:
       find: 'Finds users by id|email|name. Without arguments it will show your info'
-
+    project:
+      list: 'Just lists project name with IDs'
+      members: 'Lists members of given project'
   commands:
     conf:
       init:

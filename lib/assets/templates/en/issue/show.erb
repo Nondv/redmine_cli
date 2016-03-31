@@ -34,6 +34,14 @@
 
 % end
 %
+% if issue.attachments?
+<%= 'Attachments:'.yellow %>
+
+%   issue.attachments.each do |a|
+  <%= '*'.yellow %> <%= a.filename %>  -  <%= a.content_url %>
+%   end
+% end
+%
 % if issue.description? && !issue.description.empty?
 
 <%= issue.description %>

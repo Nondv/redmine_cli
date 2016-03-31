@@ -1,0 +1,16 @@
+% if list.size.zero?
+Empty list
+% end
+%
+%
+% head_id = '(id)'
+% max_id_len = list.map(&:id).map(&:size).max || 0
+% max_id_len = [max_id_len, head_id.size].max
+%
+% head_name = '(name)'
+%
+<%= head_id.yellow %>  |  <%= head_name.yellow %>
+
+% list.each do |object|
+<%= object.id.rjust(max_id_len) %>  -  <%= object.name %><%= "\n" %>
+% end

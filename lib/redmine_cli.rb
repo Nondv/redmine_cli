@@ -10,6 +10,7 @@ Dir[File.expand_path('../redmine_cli/helpers/**/*.rb', __FILE__)].each { |f| req
 require 'redmine_cli/version'
 require 'redmine_cli/exceptions'
 require 'redmine_cli/config'
+require 'redmine_cli/input_parser'
 I18n.locale = RedmineCLI::Config['locale']
 
 require 'redmine_cli/template_renderer'
@@ -43,5 +44,8 @@ module RedmineCLI
 
     desc 'user ...', m('desc.client.user')
     subcommand 'user', Subcommands::User
+
+    desc 'project ...', m('desc.client.project')
+    subcommand 'project', Subcommands::Project
   end
 end
