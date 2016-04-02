@@ -13,6 +13,7 @@ en:
       options:
         show:
           limit: 'Amount of comments (last journals).'
+          comments: 'Show only journals with comments'
         update:
           done: 'Readiness percentage'
           assign: 'ID of name part of user issue will be assigned to'
