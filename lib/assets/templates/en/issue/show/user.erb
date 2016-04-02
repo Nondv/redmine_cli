@@ -1,0 +1,13 @@
+% record = case user
+%          when String, Fixnum then RedmineRest::Models::User.find_by_id(user)
+%          when RedmineRest::Models::User then user
+%          else nil
+%          end
+%
+% output = if record
+%            (record.name? ? record.name : "#{record.firstname} #{record.lastname}") + "[#{record.id}]".red
+%          else
+%            'nil'
+%          end
+%
+<%= output %>

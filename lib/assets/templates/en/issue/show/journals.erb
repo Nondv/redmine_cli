@@ -1,7 +1,7 @@
 % journals.reverse.each do |j|
 
 <%= "----------\n".yellow %>
-%   journal_info = { 'From' => "#{j.user.name} (#{j.user.id})",
+%   journal_info = { 'From' => TemplateRenderer.render('issue/show/user', user: j.user),
 %                    'Created' => j.created_on }
 %
 %   journal_info.each do |k, v|

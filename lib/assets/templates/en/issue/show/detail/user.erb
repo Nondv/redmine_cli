@@ -1,16 +1,5 @@
-% old_user = RedmineRest::Models::User.find_by_id(old_value)
-% old = if old_user
-%         "#{old_user.firstname} #{old_user.lastname}" + "[#{old_user.id}]".red
-%       else
-%         'nil'
-%       end
-%
-% new_user = RedmineRest::Models::User.find_by_id(new_value)
-% new = if new_user
-%         "#{new_user.firstname} #{new_user.lastname}" + "[#{new_user.id}]".red
-%       else
-%         'nil'
-%       end
+% old = TemplateRenderer.render 'issue/show/user', user: old_value
+% new = TemplateRenderer.render 'issue/show/user', user: new_value
 %
 % output = old + '  ->  '.white + new
 %
