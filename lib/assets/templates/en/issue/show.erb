@@ -52,7 +52,7 @@
 %   journals = []
 %   issue.journals.reverse.each do |j|
 %     break if journals.size > journals_limit
-%     next unless j.notes?
+%     next if comments_only && !j.notes
 %     journals.push j
 %   end
 <%= TemplateRenderer.render 'issue/show/journals', journals: journals, ljust_value: ljust_value %>

@@ -1,0 +1,43 @@
+% name = detail.name
+% old_value = detail.old_value
+% new_value = detail.new_value
+%
+% if detail.attribute?
+%   case name
+%   when 'subject', 'description'
+%     attribute = name.capitalize
+%     old = old_value.nil? ? '0' : old_value.size.to_s
+%     new = new_value.nil? ? '0' : new_value.size.to_s
+%   when 'assigned_to_id'
+%     attribute = 'Assigned'
+%     old = old_value.nil? ? 'nil' : old_value
+%     new = new_value.nil? ? 'nil' : new_value
+%   when 'done_ratio'
+%     attribute = 'Readiness'
+%     old = "#{old_value}%"
+%     new = "#{new_value}%"
+%   when 'estimated_hours'
+%     attribute = 'Estimated'
+%     old = old_value.nil? ? 'nil' : old_value
+%     new = new_value.nil? ? 'nil' : new_value
+%   when 'fixed_version_id'
+%     attribute = 'Version'
+%     old = old_value.nil? ? 'nil' : old_value
+%     new = new_value.nil? ? 'nil' : new_value
+%   when 'status_id'
+%     attribute = 'Status'
+%     old = old_value.nil? ? 'nil' : old_value
+%     new = new_value.nil? ? 'nil' : new_value
+%   else
+%     attribute = name.capitalize
+%     old = old_value.inspect
+%     new = new_value.inspect
+%   end
+%
+%   output = "#{attribute}:".ljust(ljust_value).white + "#{old}  ->  #{new}"
+% elsif detail.relation?
+%    output = new_value.nil? ? "not #{name} #{old_value}" : "#{name} #{new_value}"
+% else
+%   output = detail.inspect
+% end
+<%= output %>

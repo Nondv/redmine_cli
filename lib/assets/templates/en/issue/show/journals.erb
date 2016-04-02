@@ -9,6 +9,9 @@
 
 %   end
 
+%   j.details && j.details.each do |d|
+* <%= TemplateRenderer.render 'issue/show/detail', detail: d, ljust_value: ljust_value %>
+%   end
 <%= j.notes %>
 
 
