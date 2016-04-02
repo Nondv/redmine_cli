@@ -1,0 +1,18 @@
+% journals.reverse.each do |j|
+
+<%= "----------\n".yellow %>
+%   journal_info = { 'From' => TemplateRenderer.render('issue/show/user', user: j.user),
+%                    'Created' => j.created_on }
+%
+%   journal_info.each do |k, v|
+<%= "#{k}:".ljust(ljust_value).yellow %> <%= v %>
+
+%   end
+
+%   j.details && j.details.each do |d|
+* <%= TemplateRenderer.render 'issue/show/detail', detail: d, ljust_value: ljust_value %>
+%   end
+<%= j.notes %>
+
+
+%   end

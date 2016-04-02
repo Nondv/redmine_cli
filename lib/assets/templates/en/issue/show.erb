@@ -1,13 +1,12 @@
-
 % ljust_value = 15
 % info =  { 'ID' => issue.id,
 %           'Subject' => issue.subject,
 %           'Status' => issue.status.name,
 %           'Priority' => issue.priority.name,
 %           'Readiness' => issue.done_ratio + '%',
-%           'Author' => "#{issue.author.name} (#{issue.author.id})" }
+%           'Author' => TemplateRenderer.render('issue/show/user', user: issue.author) }
 %
-% info['Assigned to'] = "#{issue.assigned_to.name} (#{issue.assigned_to.id})" if issue.assigned_to?
+% info['Assigned to'] = TemplateRenderer.render('issue/show/user', user: issue.assigned_to) if issue.assigned_to?
 % info['Project'] = issue.project.name if issue.project?
 % info['Version'] = issue.fixed_version.name if issue.fixed_version?
 % info['Parent'] = "#{issue.parent.id} - #{issue.parent.reload.subject.cut(80)}" if issue.parent?
@@ -53,25 +52,8 @@
 %   journals = []
 %   issue.journals.reverse.each do |j|
 %     break if journals.size > journals_limit
-%     next unless j.notes?
+%     next if comments_only && !j.notes
 %     journals.push j
 %   end
-
-%   journals.reverse.each do |j|
-
-<%= "----------\n".yellow %>
-%     journal_info = { 'From' => "#{j.user.name} (#{j.user.id})",
-%                      'Created' => j.created_on }
-%
-%     journal_info.each do |k, v|
-<%= "#{k}:".ljust(ljust_value).yellow %> <%= v %>
-
-%     end
-
-
-<%= j.notes %>
-
-
-%   end
-
+<%= TemplateRenderer.render 'issue/show/journals', journals: journals, ljust_value: ljust_value %>
 % end
