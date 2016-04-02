@@ -8,33 +8,30 @@
 %     attribute = name.capitalize
 %     old = old_value.nil? ? '0' : old_value.size.to_s
 %     new = new_value.nil? ? '0' : new_value.size.to_s
+%
+%     changes = "#{old_value ? old_value.size : 0}  ->  #{new_value}"
 %   when 'assigned_to_id'
 %     attribute = 'Assigned'
-%     old = old_value.nil? ? 'nil' : old_value
-%     new = new_value.nil? ? 'nil' : new_value
+%     changes = "#{old_value || 'nil'}  ->  #{new_value || 'nil'}"
 %   when 'done_ratio'
 %     attribute = 'Readiness'
-%     old = "#{old_value}%"
-%     new = "#{new_value}%"
+%     changes = "#{old_value}%  ->  #{new_value}%"
 %   when 'estimated_hours'
 %     attribute = 'Estimated'
-%     old = old_value.nil? ? 'nil' : old_value
-%     new = new_value.nil? ? 'nil' : new_value
+%     changes = "#{old_value || 'nil'}  ->  #{new_value || 'nil'}"
 %   when 'fixed_version_id'
 %     attribute = 'Version'
-%     old = old_value.nil? ? 'nil' : old_value
-%     new = new_value.nil? ? 'nil' : new_value
+%     changes = "#{old_value || 'nil'}  ->  #{new_value || 'nil'}"
 %   when 'status_id'
 %     attribute = 'Status'
-%     old = old_value.nil? ? 'nil' : old_value
-%     new = new_value.nil? ? 'nil' : new_value
+%     changes = "#{old_value || 'nil'}  ->  #{new_value || 'nil'}"
 %   else
 %     attribute = name.capitalize
-%     old = old_value.inspect
-%     new = new_value.inspect
+%     changes = "#{old_value || 'nil'}  ->  #{new_value || 'nil'}"
 %   end
 %
-%   output = "#{attribute}:".ljust(ljust_value).white + "#{old}  ->  #{new}"
+%  output = "#{attribute}:".ljust(ljust_value).white + changes
+%
 % elsif detail.relation?
 %    output = new_value.nil? ? "not #{name} #{old_value}" : "#{name} #{new_value}"
 % else
