@@ -1,0 +1,15 @@
+% journals.reverse.each do |j|
+
+<%= "----------\n".yellow %>
+%   journal_info = { 'From' => "#{j.user.name} (#{j.user.id})",
+%                    'Created' => j.created_on }
+%
+%   journal_info.each do |k, v|
+<%= "#{k}:".ljust(ljust_value).yellow %> <%= v %>
+
+%   end
+
+<%= j.notes %>
+
+
+%   end

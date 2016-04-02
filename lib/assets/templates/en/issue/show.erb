@@ -1,4 +1,3 @@
-
 % ljust_value = 15
 % info =  { 'ID' => issue.id,
 %           'Subject' => issue.subject,
@@ -56,22 +55,5 @@
 %     next unless j.notes?
 %     journals.push j
 %   end
-
-%   journals.reverse.each do |j|
-
-<%= "----------\n".yellow %>
-%     journal_info = { 'From' => "#{j.user.name} (#{j.user.id})",
-%                      'Created' => j.created_on }
-%
-%     journal_info.each do |k, v|
-<%= "#{k}:".ljust(ljust_value).yellow %> <%= v %>
-
-%     end
-
-
-<%= j.notes %>
-
-
-%   end
-
+<%= TemplateRenderer.render 'issue/show/journals', journals: journals, ljust_value: ljust_value %>
 % end
