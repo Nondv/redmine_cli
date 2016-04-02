@@ -9,10 +9,10 @@
 %     old = old_value.nil? ? '0' : old_value.size.to_s
 %     new = new_value.nil? ? '0' : new_value.size.to_s
 %
-%     changes = "#{old_value ? old_value.size : 0}  ->  #{new_value}"
+%     changes = "#{old_value ? old_value.size : 0} chars  ->  #{new_value ? new_value.size : 0} chars"
 %   when 'assigned_to_id'
 %     attribute = 'Assigned'
-%     changes = "#{old_value || 'nil'}  ->  #{new_value || 'nil'}"
+%     changes = TemplateRenderer.render('issue/show/detail/user', new_value: new_value, old_value: old_value)
 %   when 'done_ratio'
 %     attribute = 'Readiness'
 %     changes = "#{old_value}%  ->  #{new_value}%"
