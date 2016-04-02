@@ -1,13 +1,13 @@
 % old_obj = object_class.find_by_id(old_value)
 % old = if old_obj
-%         "#{old_obj.name}[#{old_obj.id}]"
+%         old_obj.name.to_s + "[#{old_obj.id}]".red
 %       else
 %         'nil'
 %       end
 %
 % new_obj = object_class.find_by_id(new_value)
 % new = if new_obj
-%         "#{new_obj.name}[#{new_obj.id}]"
+%         new_obj.name.to_s + "[#{new_obj.id}]".red
 %       else
 %         'nil'
 %       end
