@@ -21,10 +21,15 @@
 %     changes = "#{old_value || 'nil'}" + '  ->  '.white + "#{new_value || 'nil'}"
 %   when 'fixed_version_id'
 %     attribute = 'Version'
-%     changes = "#{old_value || 'nil'}" + '  ->  '.white + "#{new_value || 'nil'}"
+%     changes = TemplateRenderer.render 'issue/show/detail/some_object',
+%                                       new_value: new_value,
+%                                       old_value: old_value,
+%                                       object_class: RedmineRest::Models::Version
 %   when 'status_id'
 %     attribute = 'Status'
-%     changes = "#{old_value || 'nil'}" + '  ->  '.white + "#{new_value || 'nil'}"
+%     changes = TemplateRenderer.render 'issue/show/detail/status',
+%                                       new_value: new_value,
+%                                       old_value: old_value
 %   else
 %     attribute = name.capitalize
 %     changes = "#{old_value || 'nil'}" + '  ->  '.white + "#{new_value || 'nil'}"
