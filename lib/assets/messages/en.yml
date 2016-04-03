@@ -24,6 +24,7 @@ en:
           description: 'Change description with your text editor.'
     conf:
       init: 'Asks you few question to make your config file useful'
+      status_complete: 'Sets default status for completed issues'
     user:
       find: 'Finds users by id|email|name. Without arguments it will show your info'
     project:
@@ -35,6 +36,8 @@ en:
         enter_user: 'Enter your login to Redmine: '
         enter_password: 'Enter your password: '
         enter_site: 'Enter URL to your Redmine: '
+      status_complete:
+        select_status: 'Please, select status for completed issues.'
     issue:
       update:
         type_comment_here: 'Type your comment here, save file and close'
