@@ -35,6 +35,10 @@ module RedmineCLI
         puts m(:not_found)
       end
 
+      desc 'complete <id>', m('desc.issue.complete')
+      def complete(id)
+      end
+
       #
       # TODO:
       # * estimated time
