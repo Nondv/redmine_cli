@@ -37,7 +37,7 @@ module RedmineCLI
       end
 
       desc 'complete <id>', m('desc.issue.complete')
-      option :assign, aliases: ['-a'], type: :string, desc: 'm.desc.issue.options.update.assign'
+      option :assign, aliases: ['-a'], type: :string, desc: m('desc.issue.options.complete.assign')
       def complete(id)
         issue = Models::Issue.find(id)
         invoke(Conf, 'status_complete', []) unless Config['statuses'] && Config['statuses']['complete']

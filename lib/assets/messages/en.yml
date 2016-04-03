@@ -17,11 +17,13 @@ en:
           comments: 'Show only journals with comments'
         update:
           done: 'Readiness percentage'
-          assign: 'ID of name part of user issue will be assigned to'
+          assign: 'ID or name part of user issue will be assigned to'
           time: 'Add time entry. Formats: HH:MM; M (minutes); H.h (hours in float)'
           status: 'Change status of issue. Search by status name substring'
           comment: 'Leave comment. It will open your text editor.'
           description: 'Change description with your text editor.'
+        complete:
+          assign: 'ID or name part of user issue will be assigned to. If not defined, issue will be assigned to its author.'
     conf:
       init: 'Asks you few question to make your config file useful'
       status_complete: 'Sets default status for completed issues'
