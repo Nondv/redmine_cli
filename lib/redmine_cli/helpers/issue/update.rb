@@ -39,9 +39,16 @@ module RedmineCLI
         end
 
         def update_status(issue)
-          return unless options[:status]
+          opt = options[:status]
+          return unless opt
 
-          found_statuses = Models::IssueStatus.all.filter_by_name_substring(options[:status])
+          list = Models::IssueStatus.all
+          if opt.numeric?
+            status = list.find { |s| s.id == opt }
+            return issue.status_id = status.id if status
+          end
+
+          found_statuses = list.filter_by_name_substring(opt)
           case found_statuses.size
           when 0 then @errors.push "Status: #{m(:not_found)}"
           when 1 then issue.status_id = found_statuses.first.id

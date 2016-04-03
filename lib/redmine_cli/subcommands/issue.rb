@@ -1,5 +1,6 @@
 require 'thor'
 require 'redmine_rest'
+require_relative 'conf'
 
 module RedmineCLI
   module Subcommands
@@ -36,7 +37,19 @@ module RedmineCLI
       end
 
       desc 'complete <id>', m('desc.issue.complete')
+      option :assign, aliases: ['-a'], type: :string, desc: 'm.desc.issue.options.update.assign'
       def complete(id)
+        issue = Models::Issue.find(id)
+        invoke(Conf, 'status_complete', []) unless Config['statuses'] && Config['statuses']['complete']
+        assign_to = if options[:assign]
+                      InputParser.parse_user(options[:assign], project: issue.project).id
+                    else
+                      issue.author.id
+                    end
+
+        invoke(:update, [id], ['-d', '100', '-s', Config['statuses']['complete'], '-c', '-a', assign_to])
+      rescue ActiveResource::ResourceNotFound
+        puts m(:not_found)
       end
 
       #
