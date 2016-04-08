@@ -28,7 +28,8 @@ module RedmineCLI
 
         def set_tracker
           puts Unicode.upcase(m(:trackers)) + ':'
-          @issue.tracker_id = ask_for_object(@project.trackers).id
+          # @issue.tracker_id = ask_for_object(@project.trackers).id
+          @issue.tracker_id = ask_for_object(Models::Tracker.all)
         end
 
         def set_subject
