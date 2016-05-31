@@ -3,7 +3,12 @@
 
 Command-Line Interface for Redmine.
 
-Why? 'cause web-browser + mouse sucks
+Why? Because web-browser + mouse sucks
+
+I hate using Redmine web-interface. All these mouse moves and clicks...
+This CLI allows me to do some tasks much faster: I read issue descriptions and last comments right in the console.
+
+It doesnt provide much functional so I need to open my browser sometimes, but for most of my tasks it fits well.
 
 ## Installation
 
@@ -29,6 +34,8 @@ Why? 'cause web-browser + mouse sucks
 Don't forget about console aliases!
 I use something like this:
 
+    # ~/.bashrc
+    #
     # alias i='redmine issue'
     # by the way, Thor can guess your commands so:
 

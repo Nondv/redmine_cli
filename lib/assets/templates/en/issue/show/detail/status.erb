@@ -1,0 +1,18 @@
+% list = RedmineRest::Models::IssueStatus.all
+%
+% old_status = list.find { |i| i.id == old_value }
+% old = if old_status
+%         old_status.name.to_s + "[#{old_status.id}]".red
+%       else
+%         'nil'
+%       end
+%
+% new_status = list.find { |i| i.id == new_value }
+% new = if new_status
+%         new_status.name.to_s + "[#{new_status.id}]".red
+%       else
+%         'nil'
+%       end
+%
+% output = old + '  ->  '.white + new
+<%= output %>

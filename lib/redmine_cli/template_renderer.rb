@@ -34,7 +34,7 @@ module RedmineCLI
       end
 
       def method_missing(m, *args)
-        return @vars[m] if args.empty? && @vars[m]
+        return @vars[m] if args.empty? && @vars.key?(m)
 
         super
       end

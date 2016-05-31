@@ -10,18 +10,23 @@ en:
       show: 'More info about issue'
       update: 'Change some issue params, add time entry, comment'
       create: 'Create issue'
+      complete: 'Sets readiness to 100, changes assignee, changes status'
       options:
         show:
           limit: 'Amount of comments (last journals).'
+          comments: 'Show only journals with comments'
         update:
           done: 'Readiness percentage'
-          assign: 'ID of name part of user issue will be assigned to'
+          assign: 'ID or name part of user issue will be assigned to'
           time: 'Add time entry. Formats: HH:MM; M (minutes); H.h (hours in float)'
           status: 'Change status of issue. Search by status name substring'
           comment: 'Leave comment. It will open your text editor.'
           description: 'Change description with your text editor.'
+        complete:
+          assign: 'ID or name part of user issue will be assigned to. If not defined, issue will be assigned to its author.'
     conf:
       init: 'Asks you few question to make your config file useful'
+      status_complete: 'Sets default status for completed issues'
     user:
       find: 'Finds users by id|email|name. Without arguments it will show your info'
     project:
@@ -33,6 +38,8 @@ en:
         enter_user: 'Enter your login to Redmine: '
         enter_password: 'Enter your password: '
         enter_site: 'Enter URL to your Redmine: '
+      status_complete:
+        select_status: 'Please, select status for completed issues.'
     issue:
       update:
         type_comment_here: 'Type your comment here, save file and close'
@@ -52,4 +59,5 @@ en:
   select_item_from_list: 'Select item from list: '
   trackers: 'trackers'
   projects: 'projects'
-
+  versions: 'versions'
+  without_version: '<without version>'

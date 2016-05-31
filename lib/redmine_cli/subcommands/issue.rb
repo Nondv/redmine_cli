@@ -1,5 +1,6 @@
 require 'thor'
 require 'redmine_rest'
+require_relative 'conf'
 
 module RedmineCLI
   module Subcommands
@@ -24,10 +25,30 @@ module RedmineCLI
 
       desc 'show <id>', m('desc.issue.show')
       option :limit, aliases: ['-l'], type: :numeric, default: 5, desc: m('desc.issue.options.show.limit')
+      option :comments_only, aliases: ['-c'], type: :boolean, desc: m('desc.issue.options.show.comments')
       def show(id)
-        puts erb('issue/show', issue: Models::Issue.find(id), journals_limit: options[:limit])
+        puts erb 'issue/show',
+                 issue: Models::Issue.find(id),
+                 journals_limit: options[:limit],
+                 comments_only: options[:comments_only]
 
       rescue ActiveResource::ResourceNotFound # WARNING: it can be raised by associations in template
+        puts m(:not_found)
+      end
+
+      desc 'complete <id>', m('desc.issue.complete')
+      option :assign, aliases: ['-a'], type: :string, desc: m('desc.issue.options.complete.assign')
+      def complete(id)
+        issue = Models::Issue.find(id)
+        invoke(Conf, 'status_complete', []) unless Config['statuses'] && Config['statuses']['complete']
+        assign_to = if options[:assign]
+                      InputParser.parse_user(options[:assign], project: issue.project).id
+                    else
+                      issue.author.id
+                    end
+
+        invoke(:update, [id], ['-d', '100', '-s', Config['statuses']['complete'], '-c', '-a', assign_to])
+      rescue ActiveResource::ResourceNotFound
         puts m(:not_found)
       end
 
@@ -69,7 +90,6 @@ module RedmineCLI
 
         @issue = Models::Issue.new
         set_attributes
-
         @issue.save
         puts 'Done.'
       end

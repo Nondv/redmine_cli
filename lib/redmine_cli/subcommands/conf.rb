@@ -22,6 +22,15 @@ module RedmineCLI
 
         puts m(:thank_you)
       end
+
+      desc 'status-complete', m('desc.conf.status_complete')
+      def status_complete
+        puts m('commands.conf.status_complete.select_status')
+        Config['statuses'] ||= {}
+        Config['statuses']['complete'] = ask_for_object(RedmineRest::Models::IssueStatus.all).id
+        Config.save
+        puts m(:thank_you)
+      end
     end
   end
 end

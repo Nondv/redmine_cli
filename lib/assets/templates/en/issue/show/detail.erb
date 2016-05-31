@@ -1,0 +1,45 @@
+% name = detail.name
+% old_value = detail.old_value
+% new_value = detail.new_value
+%
+% if detail.attribute?
+%   case name
+%   when 'subject', 'description'
+%     attribute = name.capitalize
+%     old = old_value.nil? ? '0' : old_value.size.to_s
+%     new = new_value.nil? ? '0' : new_value.size.to_s
+%
+%     changes = "#{old_value ? old_value.size : 0} chars" + '  ->  '.white + "#{new_value ? new_value.size : 0} chars"
+%   when 'assigned_to_id'
+%     attribute = 'Assigned'
+%     changes = TemplateRenderer.render('issue/show/detail/user', new_value: new_value, old_value: old_value)
+%   when 'done_ratio'
+%     attribute = 'Readiness'
+%     changes = "#{old_value}%" + '  ->  '.white + "#{new_value}%"
+%   when 'estimated_hours'
+%     attribute = 'Estimated'
+%     changes = "#{old_value || 'nil'}" + '  ->  '.white + "#{new_value || 'nil'}"
+%   when 'fixed_version_id'
+%     attribute = 'Version'
+%     changes = TemplateRenderer.render 'issue/show/detail/some_object',
+%                                       new_value: new_value,
+%                                       old_value: old_value,
+%                                       object_class: RedmineRest::Models::Version
+%   when 'status_id'
+%     attribute = 'Status'
+%     changes = TemplateRenderer.render 'issue/show/detail/status',
+%                                       new_value: new_value,
+%                                       old_value: old_value
+%   else
+%     attribute = name.capitalize
+%     changes = "#{old_value || 'nil'}" + '  ->  '.white + "#{new_value || 'nil'}"
+%   end
+%
+%  output = "#{attribute}:".ljust(ljust_value).white + changes
+%
+% elsif detail.relation?
+%    output = new_value.nil? ? "not #{name} #{old_value}" : "#{name} #{new_value}"
+% else
+%   output = detail.inspect
+% end
+<%= output %>
