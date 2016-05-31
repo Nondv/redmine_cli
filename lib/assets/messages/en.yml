@@ -59,4 +59,5 @@ en:
   select_item_from_list: 'Select item from list: '
   trackers: 'trackers'
   projects: 'projects'
-
+  versions: 'versions'
+  without_version: '<without version>'

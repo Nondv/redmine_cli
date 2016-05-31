@@ -14,6 +14,7 @@ module RedmineCLI
 
         def set_attributes
           set_project
+          set_version
           set_tracker
           set_subject
           set_description
@@ -24,6 +25,15 @@ module RedmineCLI
           puts Unicode.upcase(m(:projects)) + ':'
           @project = ask_for_object(Models::Project.all)
           @issue.project_id = @project.id
+        end
+
+        def set_version
+          list = [dummy_object_with_name(m(:without_version))] + @project.versions.to_a
+          return if list.size == 1
+
+          puts Unicode.upcase(m(:versions)) + ':'
+          @version = ask_for_object(list)
+          @issue.fixed_version_id = @version.is_a?(Models::Version) ? @version.id : nil
         end
 
         def set_tracker
@@ -46,6 +56,13 @@ module RedmineCLI
           puts m('commands.issue.create.assign_to')
           @assignee = ask_for_object(@project.members)
           @issue.assigned_to_id = @assignee.id
+        end
+
+        def dummy_object_with_name(name)
+          dummy = Object.new
+          dummy.define_singleton_method(:name) { name }
+
+          dummy
         end
       end
     end

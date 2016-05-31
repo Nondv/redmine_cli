@@ -1,3 +1,3 @@
 module RedmineCLI
-  VERSION = '0.6.0-hotfix-0-5-1'.freeze
+  VERSION = '0.6.0-create.with.version'.freeze
 end
