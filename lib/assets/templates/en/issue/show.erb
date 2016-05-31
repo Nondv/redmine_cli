@@ -33,7 +33,7 @@
 
 % end
 %
-% if issue.attachments?
+% if issue.attachments.size > 0
 <%= 'Attachments:'.yellow %>
 
 %   issue.attachments.each do |a|
