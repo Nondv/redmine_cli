@@ -1,7 +1,7 @@
 require 'erb'
 require 'colorize'
 
-require_relative 'config'
+require 'redmine_cli/config'
 
 module RedmineCLI
   #

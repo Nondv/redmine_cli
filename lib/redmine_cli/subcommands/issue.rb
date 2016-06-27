@@ -1,6 +1,6 @@
 require 'thor'
 require 'redmine_rest'
-require_relative 'conf'
+require 'redmine_cli/subcommands/conf'
 
 module RedmineCLI
   module Subcommands
