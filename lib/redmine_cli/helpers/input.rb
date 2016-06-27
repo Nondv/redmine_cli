@@ -1,7 +1,7 @@
 require 'uri'
 require 'tempfile'
 
-require_relative 'output'
+require 'redmine_cli/helpers/output'
 
 module RedmineCLI
   module Helpers
