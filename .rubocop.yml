@@ -1,3 +1,9 @@
+AllCops:
+  DisplayStyleGuide: true
+  DisplayCopNames: true
+  ExtraDetails: true
+  UseCache: false
+
 Metrics/LineLength:
   Max: 120
 
@@ -6,3 +12,6 @@ Style/Documentation:
     - 'spec/**/*'
     - 'test/**/*'
     - 'lib/redmine_cli/helpers/monkey_patching.rb'
+
+Style/FrozenStringLiteralComment:
+  Enabled: false

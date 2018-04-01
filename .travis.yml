@@ -1,0 +1,11 @@
+language: ruby
+rvm:
+- 2.4.2
+script: rake travis
+deploy:
+  provider: rubygems
+  api_key:
+    secure: CCtmgUnWoiG4tKRalp9kfEcaeDUfipES0mcWPV4K0D/K651nxZ0kHe+VV+3rpvV1KDs4i5W+TosVvpH5lDL7+oALLFTsYgo3iam+kzMLfoskkZUuizUDxYjXrWI0T+SM0gL3Ax1J9oJ0cd7j1sUGi5TZ/IHXrKknm1yqFIx83mgKCFxYKJUAwQuwpo924ukqyQ0IsJtYX7AJ31hQwFBZSscJbriaxsz3dN+ptmvYVt9/+oIowHrvZCFnlgejel/eZ9iKCMR8buxx1RF3Q3y7LZkpMb20UBfjMwUkz/XBXGFCFVUaCLEcdFnAuoRePJ8a+q3Qkd0wZp+5g2offguVycTWsPTGgSjSAXcPUK0fOnE6bsBZ9XnkAiwkPtxO3MeG7iBcGBX2XY/Tzl+8EW2FgGeIICBh5sg+UqmrGAuqzmtgrJJwOaBeyLEbAKemAdPRfN7M0Hq1DgbOHchttmiCAY1Ja/RBiYwbEkZsPn9VI2tH3CUvdqc0B4jPV05OKU1sv06hHKJTWoCjsmvd52Tr0Kbr5ofBvLMj+uHnyCx78SwfReVCPEb2PzK5GUBG6+Ufu8UOTFdlS8gDmSO09R/qd/kSILvxCLntNVQAn/aUlnZ0aBJURxhoTQkKRSBGcGrOUXhMKnj3jnwZw1othJ5xxiSXy6fM/8JrsxyPH7TalT8=
+  on:
+    branch: master
+    tags: true
