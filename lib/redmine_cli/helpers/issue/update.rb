@@ -18,6 +18,7 @@ module RedmineCLI
           update_done_ratio(issue)
           update_assigned_to(issue)
           update_status(issue)
+          update_parent_issue_id(issue)
 
           # it should be last, because it creates new object
           add_time_entry_to_issue(issue) if @errors.empty?
@@ -83,6 +84,15 @@ module RedmineCLI
 
         rescue BadInputTime
           @errors.push "Time: #{m(:wrong_format)}"
+        end
+
+        def update_parent_issue_id(issue)
+          return unless options[:parent_issue_id]
+
+          parrent_issue = Models::Issue.find(options[:parent_issue_id])
+          issue.parent_issue_id = parrent_issue.id
+        rescue ActiveResource::ResourceNotFound
+          @errors.push "ParentIssue: #{m(:not_found)}"
         end
       end
     end

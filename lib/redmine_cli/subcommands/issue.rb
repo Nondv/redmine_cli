@@ -64,6 +64,7 @@ module RedmineCLI
       #
       desc 'update <id>', m('desc.issue.update')
       option :done,          type: :numeric, aliases: '-d', desc: m('desc.issue.options.update.done')
+      option :parent_issue_id, type: :numeric, aliases: '-p', desc: m('desc.issue.options.update.parent_issue_id')
       option :assign,        type: :string, aliases: '-a', desc: m('desc.issue.options.update.assign')
       option :time,          type: :string, aliases: '-t', desc: m('desc.issue.options.update.time')
       option :status,        type: :string, aliases: '-s', desc: m('desc.issue.options.update.status')
